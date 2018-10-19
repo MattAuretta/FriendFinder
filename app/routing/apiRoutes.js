@@ -5,9 +5,50 @@ module.exports = function (app) {
         res.json(friends);
     });
 
-    app.post('/api/friends', function (req, res){
+    app.post('/api/friends', function (req, res) {
+        //Store user data into a variable
         var userData = req.body;
         console.log(userData);
+
+        //Store user scores into a separate variable
+        var userScores = userData.scores;
+        console.log(userScores);
+
+        //Create variable to hold score difference
+        var scoreDifference = 0;
+
+        //Create a best match object with a friend difference integer to check the score difference against
+        var bestMatch = {
+            name: "",
+            photo: "",
+            friendDifference: 100
+        }
+
+        //Loop through array of friends
+        for (var i = 0; i < friends.length; i++) {
+
+            //Reset the score difference to 0 for each friend we loop through
+            scoreDifference = 0;
+
+            //Loop through each friend's array of scores
+            for (var j = 0; j < friends[i].scores[j]; j++){
+
+                //Calculate the score difference between each user score and each friend score
+                scoreDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+
+                //Check if the score difference is less than the current best match in the loop
+                if(scoreDifference <= bestMatch.friendDifference){
+                    bestMatch.name = friends[i].name,
+                    bestMatch.photo = friends[i].photo,
+                    bestMatch.friendDifference = scoreDifference
+                };
+            };
+        };
+
+        console.log(bestMatch);
+        //Push the user data to the friends array
         friends.push(userData);
+        //Send the best match in the response
+        res.json(bestMatch);
     })
 };
