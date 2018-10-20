@@ -33,7 +33,7 @@ var friends = [
     },
     {
         name: "Jerry",
-        photo: "https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2018/10/08/rick-and-morty.jpg",
+        photo: "http://rickandmortytv.ru/images/hero/jerry_smith.jpg",
         scores: [
             4,
             1,
@@ -42,14 +42,14 @@ var friends = [
             2,
             5,
             4,
-            2,
+            1,
             4,
             1
         ]
     },
     {
         name: "Beth",
-        photo: "https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2018/10/08/rick-and-morty.jpg",
+        photo: "https://static.comicvine.com/uploads/original/6/66303/4472083-vlcsnap-2015-01-31-18h46m55s179.png",
         scores: [
             1,
             4,
@@ -65,7 +65,7 @@ var friends = [
     },
     {
         name: "Summer",
-        photo: "https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2018/10/08/rick-and-morty.jpg",
+        photo: "http://rickandmortytv.ru/photo/images_large/summer_smith/summer_smith006.jpg",
         scores: [
             3,
             4,
@@ -81,7 +81,7 @@ var friends = [
     },
     {
         name: "Mr. Poopybutthole",
-        photo: "https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2018/10/08/rick-and-morty.jpg",
+        photo: "https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/mr-poopybutthole-rick-and-morty-3.1.jpg",
         scores: [
             1,
             3,
@@ -97,7 +97,7 @@ var friends = [
     },
     {
         name: "Evil Morty",
-        photo: "https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2018/10/08/rick-and-morty.jpg",
+        photo: "http://images.shoutwiki.com/nothingiscanon/thumb/e/ec/Evilmorty.JPG/250px-Evilmorty.JPG",
         scores: [
             1,
             5,

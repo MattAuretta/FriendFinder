@@ -31,17 +31,19 @@ module.exports = function (app) {
             scoreDifference = 0;
 
             //Loop through each friend's array of scores
-            for (var j = 0; j < friends[i].scores[j]; j++){
-
+            for (var j = 0; j < friends[i].scores.length; j++) {
+                
                 //Calculate the score difference between each user score and each friend score
                 scoreDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+                console.log(scoreDifference);
+                
+            };
 
-                //Check if the score difference is less than the current best match in the loop
-                if(scoreDifference <= bestMatch.friendDifference){
-                    bestMatch.name = friends[i].name,
+            //Check if the score difference is less than the current best match in the loop
+            if (scoreDifference <= bestMatch.friendDifference) {
+                bestMatch.name = friends[i].name,
                     bestMatch.photo = friends[i].photo,
                     bestMatch.friendDifference = scoreDifference
-                };
             };
         };
 
