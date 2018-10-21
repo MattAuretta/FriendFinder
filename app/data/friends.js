@@ -1,7 +1,7 @@
 var friends = [
     {
         name: "Rick",
-        photo: "https://www.geek.com/wp-content/uploads/2017/09/maxresdefault-625x352.jpg",
+        photo: "assets/images/rick.png",
         scores: [
             1,
             5,
@@ -17,7 +17,7 @@ var friends = [
     },
     {
         name: "Morty",
-        photo: "https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2018/10/08/rick-and-morty.jpg",
+        photo: "assets/images/morty.png",
         scores: [
             5,
             3,
@@ -33,7 +33,7 @@ var friends = [
     },
     {
         name: "Jerry",
-        photo: "http://rickandmortytv.ru/images/hero/jerry_smith.jpg",
+        photo: "assets/images/jerry.png",
         scores: [
             4,
             1,
@@ -49,7 +49,7 @@ var friends = [
     },
     {
         name: "Beth",
-        photo: "https://static.comicvine.com/uploads/original/6/66303/4472083-vlcsnap-2015-01-31-18h46m55s179.png",
+        photo: "assets/images/beth.png",
         scores: [
             1,
             4,
@@ -59,13 +59,13 @@ var friends = [
             4,
             5,
             3,
-            4,
+            5,
             2
         ]
     },
     {
         name: "Summer",
-        photo: "http://rickandmortytv.ru/photo/images_large/summer_smith/summer_smith006.jpg",
+        photo: "assets/images/summer.png",
         scores: [
             3,
             4,
@@ -81,7 +81,7 @@ var friends = [
     },
     {
         name: "Mr. Poopybutthole",
-        photo: "https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/mr-poopybutthole-rick-and-morty-3.1.jpg",
+        photo: "assets/images/Mr._Poopybutthole.png",
         scores: [
             1,
             3,
@@ -97,7 +97,7 @@ var friends = [
     },
     {
         name: "Evil Morty",
-        photo: "http://images.shoutwiki.com/nothingiscanon/thumb/e/ec/Evilmorty.JPG/250px-Evilmorty.JPG",
+        photo: "assets/images/evil_morty.jpg",
         scores: [
             1,
             5,
