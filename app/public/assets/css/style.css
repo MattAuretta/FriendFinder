@@ -1,6 +1,71 @@
+@font-face {
+    font-family: "get_schwiftyregular";
+    src: url("./fonts/get_schwifty__a_rick_and_morty_font_by_jonizaak-dajw4u8-webfont.ttf"),
+        url("./fonts/get_schwifty__a_rick_and_morty_font_by_jonizaak-dajw4u8-webfont.woff"),
+        url("./fonts/get_schwifty__a_rick_and_morty_font_by_jonizaak-dajw4u8-webfont.woff2");
+}
+
+@font-face {
+    font-family: 'rick_and_mortymedium';
+    src: url("./fonts/rick_and_morty_by_shittychan-d9h2vl6-webfont.woff"),
+        url("./fonts/rick_and_morty_by_shittychan-d9h2vl6-webfont.woff2");
+
+}
+
 body {
     background-image: url("../images/black_mamba.png");
-    color: #16B90A;
+}
+
+/* ----------- Home Page ----------- */
+
+.title {
+    font-size: 6em;
+    margin-top: 0.5em;
+    font-family: "get_schwiftyregular";
+    color: #0FAEC3;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #50B462, 0 0 40px #50B462, 0 0 50px #50B462, 0 0 60px #50B462, 0 0 70px #50B462;
+}
+
+.home-button {
+    margin-top: 2em;
+    font-family: "rick_and_mortymedium";
+    font-size: 2em;
+    background-color: transparent;
+    border: 2px solid rgba(80, 180, 98, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #50B462, 0 0 40px #50B462, 0 0 50px #50B462, 0 0 60px #50B462, 0 0 70px #50B462;
+    color: #0FAEC3;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #50B462, 0 0 4px #50B462, 0 0 5px #50B462, 0 0 6px #50B462, 0 0 7px #50B462;
+}
+
+@-webkit-keyframes glow {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #50B462, 0 0 40px #50B462, 0 0 50px #50B462, 0 0 60px #50B462, 0 0 70px #50B462;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #65e07c, 0 0 40px #65e07c, 0 0 50px #65e07c, 0 0 60px #65e07c, 0 0 70px #65e07c, 0 0 80px #65e07c;
+        box-shadow: 0 0 20px #fff, 0 0 30px #65e07c, 0 0 40px #65e07c, 0 0 50px #65e07c, 0 0 60px #65e07c, 0 0 70px #65e07c, 0 0 80px #65e07c;
+    }
+}
+
+.home-button:hover {
+    cursor: pointer;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    font-family: "rick_and_mortymedium";
+    font-size: 1.2em;
+}
+
+.footer a {
+    color: #0FAEC3;
+    text-decoration: none;
 }
 
 #modal-image {
