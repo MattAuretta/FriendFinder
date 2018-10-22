@@ -119,8 +119,7 @@ h5 {
 }
 
 input {
-        font-family: "calligraphrregular";
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #50B462, 0 0 20px #50B462, 0 0 25px #50B462, 0 0 30px #50B462, 0 0 35px #50B462;
+    font-family: "calligraphrregular";
 }
 
 select {
@@ -131,6 +130,11 @@ select {
     font-size: 1.5em;
     border-radius: 5px;
     border-radius: 5px;
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #50B462, 0 0 20px #50B462;
+}
+
+select:focus,
+input[type=text]:focus {
     box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #50B462, 0 0 20px #50B462, 0 0 25px #50B462, 0 0 30px #50B462, 0 0 35px #50B462;
 }
 
