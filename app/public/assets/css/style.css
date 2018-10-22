@@ -165,6 +165,10 @@ select {
 
 /* ----------- Modal ----------- */
 
+.modal-content {
+    background-color: #555;
+}
+
 #modal-image {
     width: 100%;
 }

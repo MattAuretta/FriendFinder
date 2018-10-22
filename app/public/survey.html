@@ -33,7 +33,7 @@
 
         <h4>Question 1</h4>
         <h5>You are impressionable</h5>
-        <select data-placeholder="" id="q1">
+        <select data-placeholder="" id="q1" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -44,7 +44,7 @@
 
         <h4>Question 2</h4>
         <h5>You have a high intellect</h5>
-        <select data-placeholder="" id="q2">
+        <select data-placeholder="" id="q2" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -55,7 +55,7 @@
 
         <h4>Question 3</h4>
         <h5>Sometimes your actions can be cynical or narcissitic</h5>
-        <select data-placeholder="" id="q3">
+        <select data-placeholder="" id="q3" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -66,7 +66,7 @@
 
         <h4>Question 4</h4>
         <h5>You like to drink</h5>
-        <select data-placeholder="" id="q4">
+        <select data-placeholder="" id="q4" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -77,10 +77,10 @@
 
         <h4>Question 5</h4>
         <h5>You have a few catchphrases</h5>
-        <select data-placeholder="" id="q5">
+        <select data-placeholder="" id="q5" class="chosen-select">
             <option value="">Choose One...</option>
             <option value=" 1">1
-            (Strongly Disagree)</option>
+                (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -89,7 +89,7 @@
 
         <h4>Question 6</h4>
         <h5>You value your friends and family</h5>
-        <select data-placeholder="" id="q6">
+        <select data-placeholder="" id="q6" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -100,7 +100,7 @@
 
         <h4>Question 7</h4>
         <h5>You have some insecurities</h5>
-        <select data-placeholder="" id="q7">
+        <select data-placeholder="" id="q7" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -111,7 +111,7 @@
 
         <h4>Question 8</h4>
         <h5>You spend a lot of time on your phone</h5>
-        <select data-placeholder="" id="q8">
+        <select data-placeholder="" id="q8" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -122,7 +122,7 @@
 
         <h4>Question 9</h4>
         <h5>You get jealous of others</h5>
-        <select data-placeholder="" id="q9">
+        <select data-placeholder="" id="q9" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -133,7 +133,7 @@
 
         <h4>Question 10</h4>
         <h5>You'll do anything to get what you want, even if it means hurting others</h5>
-        <select data-placeholder="" id="q10">
+        <select data-placeholder="" id="q10" class="chosen-select">
             <option value="">Choose One...</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -149,7 +149,8 @@
     </div>
 
     <footer class="survey-footer">
-        <p><a href="/api/friends">API Friends</a> l <a href="https://github.com/MattAuretta/FriendFinder">GitHub Repo</a></p>
+        <p><a href="/">Home</a> l <a href="/api/friends">API Friends</a> l <a href="https://github.com/MattAuretta/FriendFinder">GitHub
+                Repo</a></p>
     </footer>
 
     <!-- Modal -->
@@ -177,33 +178,53 @@
 
 <script type="text/javascript">
     $(".submit-button").on("click", function () {
-        var userData = {
-            name: $("#user_name").val().trim(),
-            photo: $("#user_photo").val().trim(),
-            scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-            ]
+
+        //Form validation
+        function validate() {
+            $(".form-control").each(function () {
+                if ($(this).val() === "") {
+                    return false;
+                }
+            });
+            $(".chosen-select").each(function () {
+                if ($(this).val() === "") {
+                    return false;
+                }
+            });
         };
 
-        var currentURL = window.location.origin;
+        if (validate()) {
+            var userData = {
+                name: $("#user_name").val().trim(),
+                photo: $("#user_photo").val().trim(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
 
-        $.post(currentURL + "/api/friends", userData, function (data) {
-            $("#modal-title").html(data.name)
-            $("#modal-image").attr("src", data.photo)
-            $("#friend_name").val("");
-            $("#friend_image").val("");
-        });
+            var currentURL = window.location.origin;
 
-        $("#friend-modal").modal("show");
+            $.post(currentURL + "/api/friends", userData, function (data) {
+                $("#modal-title").html(data.name)
+                $("#modal-image").attr("src", data.photo)
+                $("#friend_name").val("");
+                $("#friend_image").val("");
+            });
+
+            $("#friend-modal").modal("show");
+
+        } else {
+            alert("Please fill out entire form")
+        }
     });
 </script>
 
