@@ -170,19 +170,40 @@
                     <img id="modal-image">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="fan-match" data-dismiss="modal">View Your Best Fan Match</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fan Modal -->
+    <div class="modal fade" id="fan-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Your Fan Match Is</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="fan-name"></h5>
+                    <img id="fan-modal-image">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="go-home" data-dismiss="modal">Home</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Invalid Form Modal -->
-    <div class="modal fade" id="invalid-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="invalid-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Invalid Form</h5>
+                    <h5 class="modal-title invalid-title">Invalid Form</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -250,6 +271,69 @@
             $("#invalid-modal").modal("show");
         }
     });
+
+    $(".fan-match").on("click", function () {
+        var currentURL = window.location.origin;
+        $.ajax({
+            url: currentURL + "/api/friends",
+            method: "GET",
+        }).then(function (response) {
+
+            //Removes object just entered
+            response.pop();
+
+            var userData = {
+                name: $("#user_name").val().trim(),
+                photo: $("#user_photo").val().trim(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+
+            var scoreDifference = 0;
+
+            var bestFanMatch = {
+                name: "",
+                photo: "",
+                friendDifference: 100
+            }
+
+            //Loop through array of friends
+            for (var i = 0; i < response.length; i++) {
+
+                //Reset the score difference to 0 for each friend we loop through
+                scoreDifference = 0;
+
+                //Loop through each friend's array of scores
+                for (var j = 0; j < response[i].scores.length; j++) {
+
+                    //Calculate the score difference between each user score and each friend score
+                    scoreDifference += Math.abs(parseInt(userData.scores[j]) - parseInt(response[i].scores[
+                        j]));
+                };
+
+                //Check if the score difference is less than the current best match in the loop
+                if (scoreDifference < bestFanMatch.friendDifference) {
+                    bestFanMatch.name = response[i].name,
+                        bestFanMatch.photo = response[i].photo,
+                        bestFanMatch.friendDifference = scoreDifference
+                };
+            };
+
+            $("#fan-name").html(bestFanMatch.name)
+            $("#fan-modal-image").attr("src", bestFanMatch.photo)
+            $("#fan-modal").modal("show");
+        })
+    })
 </script>
 
 </html>

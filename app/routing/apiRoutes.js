@@ -37,11 +37,11 @@ module.exports = function (app) {
 
             //Loop through each friend's array of scores
             for (var j = 0; j < characters[i].scores.length; j++) {
-                
+
                 //Calculate the score difference between each user score and each friend score
                 scoreDifference += Math.abs(parseInt(userScores[j]) - parseInt(characters[i].scores[j]));
                 console.log(scoreDifference);
-                
+
             };
 
             //Check if the score difference is less than the current best match in the loop
