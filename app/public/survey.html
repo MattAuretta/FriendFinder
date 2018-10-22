@@ -181,16 +181,18 @@
 
         //Form validation
         function validate() {
+            var valid = true;
             $(".form-control").each(function () {
                 if ($(this).val() === "") {
-                    return false;
+                    valid = false;
                 }
             });
             $(".chosen-select").each(function () {
                 if ($(this).val() === "") {
-                    return false;
+                    valid = false;
                 }
             });
+            return valid
         };
 
         if (validate()) {

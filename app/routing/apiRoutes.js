@@ -1,6 +1,11 @@
+var characters = require('../data/characters.js');
 var friends = require('../data/friends.js');
 
 module.exports = function (app) {
+    app.get('/api/characters', function (req, res) {
+        res.json(characters);
+    });
+
     app.get('/api/friends', function (req, res) {
         res.json(friends);
     });
@@ -25,24 +30,24 @@ module.exports = function (app) {
         }
 
         //Loop through array of friends
-        for (var i = 0; i < friends.length; i++) {
+        for (var i = 0; i < characters.length; i++) {
 
             //Reset the score difference to 0 for each friend we loop through
             scoreDifference = 0;
 
             //Loop through each friend's array of scores
-            for (var j = 0; j < friends[i].scores.length; j++) {
+            for (var j = 0; j < characters[i].scores.length; j++) {
                 
                 //Calculate the score difference between each user score and each friend score
-                scoreDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+                scoreDifference += Math.abs(parseInt(userScores[j]) - parseInt(characters[i].scores[j]));
                 console.log(scoreDifference);
                 
             };
 
             //Check if the score difference is less than the current best match in the loop
             if (scoreDifference <= bestMatch.friendDifference) {
-                bestMatch.name = friends[i].name,
-                    bestMatch.photo = friends[i].photo,
+                bestMatch.name = characters[i].name,
+                    bestMatch.photo = characters[i].photo,
                     bestMatch.friendDifference = scoreDifference
             };
         };
