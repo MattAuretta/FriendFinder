@@ -173,6 +173,24 @@ input[type=text]:focus {
     background-color: #555;
 }
 
+.modal-title,
+.invalid-body,
+.close {
+    font-family: "get_schwiftyregular";
+    color: #0FAEC3;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #50B462, 0 0 4px #50B462, 0 0 5px #50B462, 0 0 6px #50B462, 0 0 7px #50B462;
+}
+
+.modal-title {
+    font-size: 3em;
+}
+
+.invalid-body {
+    text-align: center;
+    font-size: 2em;
+    margin: 1em;
+}
+
 #modal-image {
     width: 100%;
 }

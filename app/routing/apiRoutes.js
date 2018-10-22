@@ -45,7 +45,7 @@ module.exports = function (app) {
             };
 
             //Check if the score difference is less than the current best match in the loop
-            if (scoreDifference <= bestMatch.friendDifference) {
+            if (scoreDifference < bestMatch.friendDifference) {
                 bestMatch.name = characters[i].name,
                     bestMatch.photo = characters[i].photo,
                     bestMatch.friendDifference = scoreDifference

@@ -149,22 +149,24 @@
     </div>
 
     <footer class="survey-footer">
-        <p><a href="/">Home</a> l <a href="/api/characters">API Characters</a> l <a href="/api/friends">API Friends</a> l <a href="https://github.com/MattAuretta/FriendFinder">GitHub
+        <p><a href="/">Home</a> l <a href="/api/characters">API Characters</a> l <a href="/api/friends">API Friends</a>
+            l <a href="https://github.com/MattAuretta/FriendFinder">GitHub
                 Repo</a></p>
     </footer>
 
-    <!-- Modal -->
+    <!-- Character Modal -->
     <div class="modal fade" id="friend-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title"></h5>
+                    <h5 class="modal-title" id="modal-title">Your Character Match Is</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <h5 id="character-name"></h5>
                     <img id="modal-image">
                 </div>
                 <div class="modal-footer">
@@ -173,6 +175,26 @@
             </div>
         </div>
     </div>
+
+    <!-- Invalid Form Modal -->
+    <div class="modal fade" id="invalid-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Invalid Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="invalid-body">
+                    Please Fill Out All Form Data
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 
@@ -216,7 +238,7 @@
             var currentURL = window.location.origin;
 
             $.post(currentURL + "/api/friends", userData, function (data) {
-                $("#modal-title").html(data.name)
+                $("#character-name").html(data.name)
                 $("#modal-image").attr("src", data.photo)
                 $("#friend_name").val("");
                 $("#friend_image").val("");
@@ -225,7 +247,7 @@
             $("#friend-modal").modal("show");
 
         } else {
-            alert("Please fill out entire form")
+            $("#invalid-modal").modal("show");
         }
     });
 </script>
