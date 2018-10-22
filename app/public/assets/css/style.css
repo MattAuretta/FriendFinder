@@ -1,3 +1,4 @@
+/* ----------- Font Installs ----------- */
 @font-face {
     font-family: "get_schwiftyregular";
     src: url("./fonts/get_schwifty__a_rick_and_morty_font_by_jonizaak-dajw4u8-webfont.ttf"),
@@ -10,6 +11,14 @@
     src: url("./fonts/rick_and_morty_by_shittychan-d9h2vl6-webfont.woff"),
         url("./fonts/rick_and_morty_by_shittychan-d9h2vl6-webfont.woff2");
 
+}
+
+
+@font-face {
+    font-family: 'calligraphrregular';
+    src: url("./fonts/calligraphr-regular-webfont.ttf"),
+        url("./fonts/calligraphr-regular-webfont.woff"),
+        url("./fonts/calligraphr-regular-webfont.woff2")
 }
 
 body {
@@ -44,29 +53,117 @@ body {
     }
 
     to {
-        text-shadow: 0 0 20px #fff, 0 0 30px #65e07c, 0 0 40px #65e07c, 0 0 50px #65e07c, 0 0 60px #65e07c, 0 0 70px #65e07c, 0 0 80px #65e07c;
+        text-shadow: 0 0 20px #fff, 0 0 30px #0FAEC3, 0 0 40px #0FAEC3, 0 0 50px #0FAEC3, 0 0 60px #0FAEC3, 0 0 70px #0FAEC3, 0 0 80px #0FAEC3;
         box-shadow: 0 0 20px #fff, 0 0 30px #65e07c, 0 0 40px #65e07c, 0 0 50px #65e07c, 0 0 60px #65e07c, 0 0 70px #65e07c, 0 0 80px #65e07c;
+        color: #fff;
     }
 }
 
-.home-button:hover {
+.home-button:hover,
+.submit-button:hover {
     cursor: pointer;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
 }
 
-.footer {
+.home-footer {
     position: absolute;
     bottom: 0;
     font-family: "rick_and_mortymedium";
     font-size: 1.2em;
+    color: #0FAEC3;
 }
 
-.footer a {
+.home-footer a {
     color: #0FAEC3;
     text-decoration: none;
 }
+
+/* ----------- Survey Page ----------- */
+
+@-webkit-keyframes flicker {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #50B462, 0 0 20px #50B462, 0 0 25px #50B462, 0 0 30px #50B462, 0 0 35px #50B462;
+    }
+
+    100% {
+        text-shadow: 0 0 15px #fff, 0 0 20px #50B462, 0 0 25px #50B462, 0 0 30px #50B462, 0 0 35px #50B462, 0 0 40px #50B462, 0 0 45px #50B462;
+    }
+}
+
+.survey-title {
+    font-size: 5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: "get_schwiftyregular";
+    color: #0FAEC3;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #50B462, 0 0 40px #50B462, 0 0 50px #50B462, 0 0 60px #50B462, 0 0 70px #50B462;
+    -webkit-animation: flicker 1s ease-in-out infinite alternate;
+    -moz-animation: flicker 1s ease-in-out infinite alternate;
+    animation: flicker 1s ease-in-out infinite alternate;
+}
+
+h4 {
+    font-family: "rick_and_mortymedium";
+    font-size: 3em;
+    margin-top: 0.1em;
+    margin-bottom: -0.2em;
+    color: #0FAEC3;
+}
+
+h5 {
+    font-family: "calligraphrregular";
+    font-size: 2em;
+    color: #0FAEC3;
+}
+
+input {
+        font-family: "calligraphrregular";
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #50B462, 0 0 20px #50B462, 0 0 25px #50B462, 0 0 30px #50B462, 0 0 35px #50B462;
+}
+
+select {
+    background: #000;
+    font-family: "rick_and_mortymedium";
+    color: #0FAEC3;
+    margin-bottom: 0.2em;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #50B462, 0 0 20px #50B462, 0 0 25px #50B462, 0 0 30px #50B462, 0 0 35px #50B462;
+}
+
+.submit-button {
+    display: block;
+    margin-top: 0.7em;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: "rick_and_mortymedium";
+    font-size: 2.3em;
+    padding: 0.1em 1.5em;
+    background-color: transparent;
+    border: 2px solid rgba(80, 180, 98, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #50B462, 0 0 40px #50B462, 0 0 50px #50B462, 0 0 60px #50B462, 0 0 70px #50B462;
+    color: #0FAEC3;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #50B462, 0 0 4px #50B462, 0 0 5px #50B462, 0 0 6px #50B462, 0 0 7px #50B462;
+}
+
+.survey-footer {
+    font-family: "rick_and_mortymedium";
+    font-size: 1.2em;
+    margin-right: 1em;
+    float: right;
+    color: #0FAEC3;
+}
+
+.survey-footer a {
+    color: #0FAEC3;
+    text-decoration: none;
+}
+
+/* ----------- Modal ----------- */
 
 #modal-image {
     width: 100%;
