@@ -67,6 +67,7 @@ body {
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
+    text-decoration: none;
 }
 
 .home-footer {
@@ -199,7 +200,7 @@ input[type=text]:focus {
 }
 
 #fan-modal-image {
-    height: 100%;
+    max-height: 300px;
 }
 
 .fan-match,
@@ -213,4 +214,8 @@ input[type=text]:focus {
     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #50B462, 0 0 40px #50B462, 0 0 50px #50B462, 0 0 60px #50B462, 0 0 70px #50B462;
     color: #0FAEC3;
     text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #50B462, 0 0 4px #50B462, 0 0 5px #50B462, 0 0 6px #50B462, 0 0 7px #50B462;
+}
+
+.go-home:hover {
+    color: #0FAEC3;
 }
